@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:cc="http://java.sun.com/jsf/composite"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <!-- INTERFACE -->
+    <cc:interface>
+        <cc:attribute name="value" />
+        <cc:attribute name="noSelectionAllowed" default="true" />
+        <cc:attribute name="required" default="false" />
+        <cc:attribute name="filter" default="true" />
+        <cc:attribute name="items" required="true"/>
+    </cc:interface>
+
+    <cc:implementation>
+        <p:selectOneMenu value="#{cc.attrs.value}" 
+                         filter="#{cc.attrs.filter}" required="#{cc.attrs.required}"
+                         filterMatchMode="contains">
+            <f:selectItem itemLabel="#{msg.select_one}" rendered="#{cc.attrs.noSelectionAllowed}"/>
+            <f:selectItems value="${cc.attrs.items}" />
+        </p:selectOneMenu>
+        
+    </cc:implementation>
+</html>

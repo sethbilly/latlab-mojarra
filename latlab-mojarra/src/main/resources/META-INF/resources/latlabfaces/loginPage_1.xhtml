@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:cc="http://java.sun.com/jsf/composite"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:stately="http://java.sun.com/jsf/composite/stately">
+
+    <!-- INTERFACE -->
+    <cc:interface>
+        <cc:attribute name="username"/>
+        <cc:attribute name="usernameLabel" default="Username"/>
+        <cc:attribute name="showKeepMeLoggedIn" default="false"/>
+        <cc:attribute name="headerText" default="Login"/>
+        <cc:attribute name="password"/>
+        <cc:attribute name="passwordLabel" default="Password"/>
+        <cc:attribute name="newAccountLinkLabel" default="Sign Up"/>
+        <cc:attribute name="newAccountLinkAction" method-signature="java.lang.String action()"/>
+        <cc:attribute name="loginLabel" default="Login"/>
+        <cc:attribute name="loginAction" method-signature="java.lang.String action()"/>
+        <cc:attribute name="forgotPasswordAction" method-signature="java.lang.String action()"/>
+    </cc:interface>
+
+    <!-- IMPLEMENTATION -->
+    <cc:implementation xmlns:stately="http://java.sun.com/jsf/composite/stately">
+        
+        <stately:defaultScripts />
+
+        <div class="content">
+
+            <div id="container">
+                
+                    <div id="header">
+                        <label class="ics">#{cc.attrs.headerText}</label><br/>
+                    </div>
+
+                    <label for="name">#{cc.attrs.usernameLabel}</label>
+
+                    <h:inputText value="#{cc.attrs.username}" tabindex="1"/>
+
+                    <label for="username">#{cc.attrs.passwordLabel}</label>
+
+                    <h:inputSecret value="#{cc.attrs.password}" tabindex="2"/>
+
+                    <p style="margin-top: 15px">
+                        
+                        <h:commandLink value="Forgot your password?" action="#{cc.attrs.forgotPasswordAction}"
+                                       style="color: white;"
+                                       rendered="#{not empty cc.attrs.forgotPasswordAction}"/>
+                       </p>
+
+                    <div id="lower">
+                        <h:selectBooleanCheckbox  rendered="#{cc.attrs.showKeepMeLoggedIn}"/>
+                        <h:outputLabel value="Keep me logged in"  rendered="#{cc.attrs.showKeepMeLoggedIn}"/>
+                        
+                        
+                        <h:panelGrid columns="2" style="width: 100%;">
+                            
+                            <h:commandLink value="#{cc.attrs.newAccountLinkLabel}" style="color: white; margin: auto;"
+                                       action="#{cc.attrs.newAccountLinkAction}"
+                                       rendered="#{not empty cc.attrs.newAccountLinkAction}"/>
+                        
+                        <h:commandButton value="#{cc.attrs.loginLabel}" action="#{cc.attrs.loginAction}"/>
+                        
+                        </h:panelGrid>
+                        
+                        
+                    </div>
+                    
+            </div>
+
+        </div>
+
+    </cc:implementation>
+
+</html>
