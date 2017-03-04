@@ -14,13 +14,13 @@
     <cc:implementation>
         
         <h:panelGroup rendered="#{cc.attrs.includeCss}">
-            <h:outputStylesheet library="csss" name="animate.css"/>
-            <h:outputStylesheet library="csss" name="reset.css"/>
-            <h:outputStylesheet library="csss" name="stately-css.css"/>
+            <h:outputStylesheet library="css" name="animate.css"/>
+            <h:outputStylesheet library="css" name="reset.css"/>
+            <h:outputStylesheet library="css" name="stately-css.css"/>
         </h:panelGroup>
         
         <h:panelGroup  rendered="#{cc.attrs.includeJs}">
-            <h:outputScript name="jss/main.js" target="head"/>
+<!--            <h:outputScript name="jss/main.js" target="head"/>-->
             <h:outputScript name="jss/jquery.js" target="head"/>
         </h:panelGroup>
         
