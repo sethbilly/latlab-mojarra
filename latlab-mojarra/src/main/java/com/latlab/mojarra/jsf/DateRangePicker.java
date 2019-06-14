@@ -1,7 +1,8 @@
 package com.latlab.mojarra.jsf;
 
-import com.latlab.common.model.DateRange;
-import com.latlab.common.model.Period;
+
+import com.latlab.common.dateutils.DateRange;
+import com.latlab.common.dateutils.Period;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
